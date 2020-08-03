@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+   context-path: /
+   
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Seoul
+    username: spring
+    password: bitc5600
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    

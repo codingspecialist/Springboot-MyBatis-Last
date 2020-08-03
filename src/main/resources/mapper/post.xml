@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cos.blog.repository.PostRepository">
+	
+	<insert id="save">
+		INSERT INTO post(title, content, userId, createDate) 
+		VALUES(#{title}, #{content}, #{userId}, now())
+	</insert>
+	
+	<select id="findAll" resultType="com.cos.blog.model.Post">
+		SELECT * FROM post ORDER BY id DESC
+	</select>
+	
+	<select id="findById" resultType="com.cos.blog.controller.dto.PostDetailRespDto">
+		SELECT p.id, p.title, p.content, u.username 
+		FROM post p INNER JOIN user u 
+		ON p.userId = u.id 
+		WHERE p.id = #{id}
+	</select>
+	
+	<select id="findOne" resultType="com.cos.blog.model.Post">
+		SELECT * FROM post WHERE id = #{id}
+	</select>
+
+	<delete id="deleteById">
+		DELETE FROM post WHERE id = #{id}
+	</delete>
+	
+	<update id="update">
+		UPDATE post SET title = #{title}, content = #{content} 
+		WHERE id = #{id}
+	</update>
+</mapper>
+
+
+
