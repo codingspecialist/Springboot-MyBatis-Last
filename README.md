@@ -10,7 +10,7 @@
 - MyBatis
 - MySQL
 - JSP
-- Spring Security
+- Intercepter
 - Lombok
 
 ## 2. 요구사항(기능)
